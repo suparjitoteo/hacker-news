@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import PostList from "./PostList";
 
 import { ThemeConsumer } from "../context/theme";
+import { formatDate } from "../utils/helpers";
 
 export default class User extends React.Component {
   state = {
@@ -54,7 +55,7 @@ export default class User extends React.Component {
             <React.Fragment>
               <h1 className='header'>{user.id}</h1>
               <div className={`meta-info-${theme}`}>
-                <span>joined <b>{user.created}</b></span>
+                <span>joined <b>{formatDate(user.created)}</b></span>
                 <span>has <b>{user.karma.toLocaleString()}</b> karma</span>
               </div>
               <p dangerouslySetInnerHTML={{__html: user.about}} />
